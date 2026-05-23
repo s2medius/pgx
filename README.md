@@ -99,6 +99,9 @@ go test ./...
 > **Tip:** Use `go test -count=1 ./...` to bypass the test cache and force a fresh run — handy
 > when debugging flaky tests or after changing environment variables.
 
+> **Tip:** Use `go test -run TestFunctionName ./...` to target a single test by name — saves a lot
+> of time when iterating on a specific failing case.
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
