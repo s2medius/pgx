@@ -89,6 +89,9 @@ export DATABASE_URL="postgres://postgres:password@localhost:5432/pgx_test"
 go test ./...
 ```
 
+> **Note:** To run only a specific package's tests (useful when iterating quickly), use
+> `go test ./pgxpool/...` or similar. Add `-v` for verbose output.
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
