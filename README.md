@@ -75,6 +75,10 @@ defer pool.Close()
 > which reduces latency for the first requests after a period of low activity, e.g.
 > `postgres://user:pass@localhost/mydb?pool_min_conns=2&pool_max_conns=20`.
 
+> **Note:** Setting `pool_max_conn_idle_time` (e.g. `pool_max_conn_idle_time=30s`) is useful in
+> containerised environments where idle connections may be dropped by a load balancer or firewall
+> before PostgreSQL notices — this ensures the pool recycles them proactively.
+
 ## Development
 
 This project uses a Dev Container for a consistent development environment.
@@ -108,8 +112,4 @@ go test ./...
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
-
-## Acknowledgements
-
-This project is a fork of [jackc/pgx](https://github.com/jackc/pgx). All credit for the original implementation goes to Jack Christensen and contributors.
+MIT License
