@@ -92,6 +92,9 @@ go test ./...
 > **Note:** To run only a specific package's tests (useful when iterating quickly), use
 > `go test ./pgxpool/...` or similar. Add `-v` for verbose output.
 
+> **Tip:** Use `go test -count=1 ./...` to bypass the test cache and force a fresh run — handy
+> when debugging flaky tests or after changing environment variables.
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
