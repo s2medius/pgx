@@ -71,6 +71,10 @@ defer pool.Close()
 > want to tune this via the `pool_max_conns` query parameter in your connection string, e.g.
 > `postgres://user:pass@localhost/mydb?pool_max_conns=20`.
 
+> **Note:** You can also set `pool_min_conns` to keep a minimum number of idle connections warm,
+> which reduces latency for the first requests after a period of low activity, e.g.
+> `postgres://user:pass@localhost/mydb?pool_min_conns=2&pool_max_conns=20`.
+
 ## Development
 
 This project uses a Dev Container for a consistent development environment.
