@@ -79,6 +79,10 @@ defer pool.Close()
 > containerised environments where idle connections may be dropped by a load balancer or firewall
 > before PostgreSQL notices — this ensures the pool recycles them proactively.
 
+> **Note:** Setting `pool_max_conn_lifetime_jitter` (e.g. `pool_max_conn_lifetime_jitter=30s`)
+> spreads out connection recycling so all connections don't expire at the same time, avoiding
+> thundering-herd reconnects under load.
+
 ## Development
 
 This project uses a Dev Container for a consistent development environment.
@@ -104,12 +108,4 @@ go test ./...
 > **Note:** To run only a specific package's tests (useful when iterating quickly), use
 > `go test ./pgxpool/...` or similar. Add `-v` for verbose output.
 
-> **Tip:** Use `go test -count=1 ./...` to bypass the test cache and force a fresh run — handy
-> when debugging flaky tests or after changing environment variables.
-
-> **Tip:** Use `go test -run TestFunctionName ./...` to target a single test by name — saves a lot
-> of time when iterating on a specific failing case.
-
-## License
-
-MIT License
+> **Tip:** Use `go test -count=1 ./...` to bypass the test cache and force all tests to re-run.
