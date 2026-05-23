@@ -67,6 +67,10 @@ if err != nil {
 defer pool.Close()
 ```
 
+> **Note:** `pgxpool.New` uses a default max pool size of 4 connections. For most workloads you'll
+> want to tune this via the `pool_max_conns` query parameter in your connection string, e.g.
+> `postgres://user:pass@localhost/mydb?pool_max_conns=20`.
+
 ## Development
 
 This project uses a Dev Container for a consistent development environment.
