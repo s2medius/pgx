@@ -105,5 +105,5 @@ export DATABASE_URL="postgres://postgres:password@localhost:5432/pgx_test"
 go test ./...
 ```
 
-> **Tip:** Add `-count=1` to disable test result caching, which is useful when debugging
-> tests that interact with the database: `go test -count=1 ./...`
+> **Note:** Use `go test -count=1 ./...` to bypass the test cache if you need to force a full re-run
+> after changing database state or environment variables.
