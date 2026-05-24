@@ -105,7 +105,5 @@ export DATABASE_URL="postgres://postgres:password@localhost:5432/pgx_test"
 go test ./...
 ```
 
-> **Note:** To run only a specific package's tests (useful when iterating quickly), use
-> `go test ./pgxpool/...` or similar. Add `-v` for verbose output.
-
-> **Tip:** Use `go test -count=1 ./...` to bypass the test cache and force all tests to re-run.
+> **Tip:** Add `-count=1` to disable test result caching, which is useful when debugging
+> tests that interact with the database: `go test -count=1 ./...`
